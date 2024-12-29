@@ -7,5 +7,7 @@ dos eixos, informe em qual eixo ele se encontra.
 
 int main(){
 
+    printf("Hello World!");
+
 return 0;
 }
