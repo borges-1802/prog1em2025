@@ -4,7 +4,6 @@ de dígitos do valor de entrada for diferente de 3, o programa deve informar o e
 usuário e terminar a execução.
 
 N = centenas^3 + dezenas^3 + unidades^3
-
 */
 
 #include <stdio.h>

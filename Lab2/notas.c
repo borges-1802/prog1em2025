@@ -3,7 +3,6 @@ Escreva um programa que receba três notas (avaliações de provas) e retorne a 
 aritmética entre as duas maiores. Teste seu programa com diferentes valores de
 entrada.
 
-Descrição: <o que o programa faz>
 Entrada: Três notas
 Saída: Média entre duas maiores notas
 Defesa: possíveis restrições de entrada
