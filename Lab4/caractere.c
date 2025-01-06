@@ -9,20 +9,25 @@ os dois requisitos a seguir:
 ...
 ‘O’ → ‘A’
 ‘P’ → ‘B’
-‘Q’ → ‘C’*/
+‘Q’ → ‘C’
+
+2) Solicite que uma nova letra seja digitada enquanto o caractere lido for uma letra do alfabeto E o total de letras já lidas e cifradas anteriormente for menor ou igual a 3;*/
 
 
 #include <stdio.h>
     int main() {
     char letra;
     char cifra = 'a';
+    int i = 0;
 
-    printf("Digite uma letra: ");
-    letra = getchar();
-//Defesa:
+    do {
+        printf("Digite uma letra: ");
+        letra = getchar();
+        getchar(); //lê o enter pra não retornar caractere inválido
+
     if (!((letra >= 'A' && letra <= 'Z') || (letra >= 'a' && letra <= 'z'))) {
-        printf("Caractere invalido");
-    return 0;
+        printf("Caractere invalido\n");
+        continue;
 }
 
     if (letra >= 'A' && letra <= 'Z') {
@@ -33,6 +38,9 @@ os dois requisitos a seguir:
         cifra = 'a' + (letra - 'a' + 12) % 26;
     }
 
-printf("A cifra de %c eh %c", letra, cifra);
+    printf("A cifra de %c eh %c\n", letra, cifra);
+    i++;
+    } while (i < 3);
+
     return 0;
 }
