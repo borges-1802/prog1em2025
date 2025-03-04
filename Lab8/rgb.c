@@ -45,25 +45,23 @@ Pixel pixelDif(Pixel p1, Pixel p2){
     return resultado;
 }
 
-Pixel pixelPast(Pixel p1){
+int pixelPast(Pixel p1){
 
-    Pixel resultado;
-    resultado.r = p1.r;
-    resultado.g = p1.g;
-    resultado.b = p1.b;
-    //if (resultado.r == 255 || resultado.g == 255 || resultado.b == 255)
-    //return 0;
+    int maior = (p1.r > p1.g) ? ((p1.r > p1.b) ? p1.r : p1.b) : ((p1.g > p1.b) ? p1.g : p1.b);
+    int menor = (p1.r < p1.g) ? ((p1.r < p1.b) ? p1.r : p1.b) : ((p1.g < p1.b) ? p1.g : p1.b);
 
-/*      1)O canal de maior valor (seja r, g ou b) é exatamente igual a 255 (i.e. 100% de
-        luminância).
-        2) O canal de menor valor é, no mínimo, 192 (75%) e, no máximo, 224 (88%).
-        3) O canal intermediário pode assumir qualquer valor entre o menor e o maior,
-        inclusive.*/
+    if ((maior == 255) && (192 <= menor && menor <= 224))
+        return 1; 
+    else
+        return 0; 
+
+
 }
 
 int main(){
 
     Pixel p1, p2, resultado;
+    int pastel;
 
     printf("Digite os tres numeros das intensidades rgb: ");
     scanf("%i %i %i", &p1.r, &p1.g, &p1.b);
@@ -78,8 +76,10 @@ int main(){
         else
         printf("Seu segundo pixel precisa ter as tres intensidades dentre 0 e 255.");
     }
-    else
+    else{
     printf("Seu segundo pixel precisa ter as tres intensidades dentre 0 e 255.");
+    return 1;
+    }
 
     resultado = pixelSoma(p1, p2);
     printf("\n\nResultado da soma:\n");
@@ -88,4 +88,10 @@ int main(){
     resultado = pixelDif(p1, p2);
     printf("\nResultado da diferenca:\n");
     printf("Pixel Diferenca = R: %i, G: %i, B: %i\n", resultado.r, resultado.g, resultado.b);
+
+    pastel = pixelPast(p1);
+    printf("\nSeu pixel eh pastel:\n");
+    printf("Pixel Pastel = R: %i", pastel);
+
+    return 0;
 }
